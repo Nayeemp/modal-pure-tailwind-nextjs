@@ -1,31 +1,31 @@
-'use client';
-import React, { useEffect, useRef } from 'react';
+"use client";
+import React, { useEffect, useRef } from "react";
 
 function Modal2({ showModal, setShowModal }) {
   const modalContainerRef = useRef();
   const modalContentRef = useRef();
 
-  // useEffect(() => {
-  //   console.log('modalContainerRef = ', modalContainerRef);
-  //   console.log('modalContainerRef current = ', modalContainerRef.current);
-  // }, [showModal]);
-  // console.log('modalContainerRef = ', modalContainerRef);
+  useEffect(() => {
+    console.log("modalContainerRef = ", modalContainerRef);
+    console.log("modalContainerRef current = ", modalContainerRef.current);
+  }, [showModal]);
+  console.log("modalContainerRef = ", modalContainerRef);
 
-  // useEffect(() => {
-  //   console.log(' modalContentRef = ', modalContentRef);
-  //   console.log(' modalContentRef current = ', modalContentRef.current);
-  // }, [showModal]);
+  useEffect(() => {
+    console.log("modalContentRef = ", modalContentRef);
+    console.log("modalContentRef current = ", modalContentRef.current);
+  }, [showModal]);
 
   useEffect(() => {
     if (modalContainerRef.current) {
       const modalContainer = modalContainerRef.current;
       if (showModal) {
         // Remove the 'hidden' and 'opacity-0' classes when showModal is true
-        modalContainer.classList.remove('hidden', 'bg-opacity-0');
-        modalContainer.classList.add('bg-opacity-50');
+        modalContainer.classList.remove("invisible", "bg-opacity-0");
+        modalContainer.classList.add("bg-opacity-50", "visible");
       } else {
         // Add the 'hidden' and 'opacity-0' classes when showModal is false
-        modalContainer.classList.add('hidden', 'bg-opacity-0');
+        modalContainer.classList.add("invisible", "bg-opacity-0");
       }
     }
 
@@ -33,9 +33,9 @@ function Modal2({ showModal, setShowModal }) {
       const modalContent = modalContentRef.current;
       if (showModal) {
         // Remove the 'hidden' and 'opacity-0' classes when showModal is true
-        modalContent.classList.remove('translate-y-[-50px]', 'opacity-0');
+        modalContent.classList.remove("translate-y-[-50px]", "opacity-0");
       } else {
-        modalContent.classList.add('translate-y-[-50px]', 'opacity-0');
+        modalContent.classList.add("translate-y-[-50px]", "opacity-0");
       }
     }
   }, [showModal]);
@@ -45,7 +45,7 @@ function Modal2({ showModal, setShowModal }) {
       {/* <!-- Modal --> */}
       <div
         ref={modalContainerRef}
-        className={`fixed left-0 top-0 z-[1055] h-full w-full overflow-y-auto overflow-x-hidden outline-none bg-black transition-all duration-300 ease-in-out hidden opacity-0'
+        className={`fixed left-0 top-0 z-[1055] h-full w-full overflow-y-auto overflow-x-hidden outline-none bg-black transition-all duration-300 ease-in-out opacity-0'
         }`}
       >
         <div
